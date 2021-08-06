@@ -1,0 +1,10 @@
+rootProject.name = "marvel"
+include ':app'
+include ':data'
+include ':data:persistence'
+include ':data:rest'
+include ':domain'
+include ':features'
+include ':features:main'
+include ':features:onboarding'
+include ':shareutils'

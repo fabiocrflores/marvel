@@ -1,0 +1,75 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["compileSdk"]
+
+    defaultConfig {
+        minSdkVersion globalConfiguration["minSdk"]
+        targetSdkVersion globalConfiguration["targetSdk"]
+    }
+
+    kotlinOptions {
+        jvmTarget = globalConfiguration["jvmTarget"]
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    def dependencies = rootProject.ext.dependencies
+    def testDependencies = rootProject.ext.testDependencies
+    def moduleNames = rootProject.ext.moduleNames
+
+    // Kotlin Lib
+    implementation dependencies.kotlinStdLib
+    implementation dependencies.kotlinReflect
+
+    // Android Support
+    implementation dependencies.appCompat
+    implementation dependencies.coreKtx
+    implementation dependencies.cardView
+    implementation dependencies.recyclerView
+    implementation dependencies.constraintLayout
+    implementation dependencies.materialDesign
+    implementation dependencies.navigationFragmentKtx
+    implementation dependencies.navigationUiKtx
+    implementation dependencies.navigationRuntime
+    implementation dependencies.legacyV4
+
+    // Lifecycle
+    implementation dependencies.lifecycleJava8
+    implementation dependencies.lifecycleViewModel
+    implementation dependencies.lifecycleLiveData
+    implementation dependencies.lifecycleSavedState
+
+    // Dagger Hilt
+    implementation dependencies.hiltAndroid
+    implementation dependencies.hiltCore
+    kapt dependencies.hiltCompiler
+
+    // Modules
+    implementation project(moduleNames.domain)
+    implementation project(moduleNames.main)
+    implementation project(moduleNames.shareUtils)
+
+    // Test
+    testImplementation testDependencies.junit
+    androidTestImplementation testDependencies.extJunit
+    androidTestImplementation testDependencies.espresso
+}
+
+repositories {
+    mavenCentral()
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="button_radius_small">4dp</dimen>
+    <dimen name="button_radius_medium">24dp</dimen>
+    <dimen name="button_stroke_width">2dp</dimen>
+    <dimen name="button_text_size_small">13sp</dimen>
+    <dimen name="button_text_size_medium">16sp</dimen>
+    <dimen name="button_height_small">32dp</dimen>
+    <dimen name="button_height_medium">48dp</dimen>
+    <dimen name="button_padding_horizontal">24dp</dimen>
+
+    <dimen name="text_size_display_1">72sp</dimen>
+    <dimen name="text_size_display_2">64sp</dimen>
+    <dimen name="text_size_display_3">48sp</dimen>
+    <dimen name="text_size_title">32sp</dimen>
+    <dimen name="text_size_headline">24sp</dimen>
+    <dimen name="text_size_subhead">19sp</dimen>
+    <dimen name="text_size_body">16sp</dimen>
+    <dimen name="text_size_caption">13sp</dimen>
+    <dimen name="text_size_footnote">11sp</dimen>
+
+    <dimen name="text_field_size_medium">16sp</dimen>
+    <dimen name="text_field_size_large">19sp</dimen>
+    <dimen name="text_field_height_medium">48dp</dimen>
+    <dimen name="text_field_height_large">72dp</dimen>
+    <dimen name="text_field_radius_medium">4dp</dimen>
+    <dimen name="text_field_radius_large">36dp</dimen>
+    <dimen name="text_field_stroke_width_medium">2dp</dimen>
+    <dimen name="text_field_stroke_width_large">4dp</dimen>
+    <dimen name="text_field_padding_horizontal">24dp</dimen>
+    <dimen name="text_field_cursor_width">1dp</dimen>
+
+    <dimen name="text_search_field_drawable_padding">9dp</dimen>
+    <dimen name="text_search_field_padding_left">16dp</dimen>
+    <dimen name="text_search_field_padding_right">23dp</dimen>
+    <dimen name="search_field_padding_left">6dp</dimen>
+    <dimen name="search_field_padding_right">1dp</dimen>
+
+    <dimen name="select_padding_right">16dp</dimen>
+
+    <dimen name="dialog_background_radius">16dp</dimen>
+    <dimen name="dialog_width">270dp</dimen>
+
+    <dimen name="default_list_spacing">4dp</dimen>
+
+</resources>

@@ -1,0 +1,67 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["compileSdk"]
+
+    defaultConfig {
+        minSdkVersion globalConfiguration["minSdk"]
+        targetSdkVersion globalConfiguration["targetSdk"]
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    def dependencies = rootProject.ext.dependencies
+    def testDependencies = rootProject.ext.testDependencies
+    def moduleNames = rootProject.ext.moduleNames
+
+    // Kotlin Lib
+    implementation dependencies.kotlinStdLib
+    implementation dependencies.kotlinReflect
+
+    // Rx
+    implementation dependencies.rxJava
+    implementation dependencies.rxKotlin
+
+    // Retrofit
+    implementation dependencies.retrofit
+    implementation dependencies.retrofitScalars
+    implementation dependencies.retrofitGson
+    implementation dependencies.retrofitRxJava
+
+    // Okhttp
+    implementation dependencies.okHttp
+    implementation dependencies.okHttpLogger
+
+    // Gson
+    implementation dependencies.gson
+
+    // Dagger Hilt
+    implementation dependencies.hiltAndroid
+    implementation dependencies.hiltCore
+    kapt dependencies.hiltCompiler
+
+    // Third-party
+    implementation dependencies.timber
+
+    implementation project(moduleNames.domain)
+
+    testImplementation testDependencies.junit
+    testImplementation testDependencies.mockitoCore
+    testImplementation testDependencies.mockitoKotlin
+    androidTestImplementation testDependencies.extJunit
+    androidTestImplementation testDependencies.espresso
+}
+
+repositories {
+    mavenCentral()
+}

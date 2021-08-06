@@ -1,0 +1,162 @@
+apply plugin: 'com.android.application'
+//apply plugin: 'com.hiya.jacoco-android'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-parcelize'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["compileSdk"]
+    buildToolsVersion globalConfiguration["buildToolsVersion"]
+
+    defaultConfig {
+        applicationId "com.marvel.developer.marvel"
+        minSdkVersion globalConfiguration["minSdk"]
+        targetSdkVersion globalConfiguration["targetSdk"]
+        versionCode globalConfiguration["versionCode"]
+        versionName globalConfiguration["versionName"]
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            minifyEnabled false
+            shrinkResources false
+        }
+
+        release {
+            debuggable false
+            minifyEnabled false
+            shrinkResources false
+
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    flavorDimensions "version"
+    productFlavors {
+        dev {
+            dimension "version"
+            applicationIdSuffix ".debug"
+            versionNameSuffix '-DEV'
+        }
+        prod {
+            dimension "version"
+        }
+    }
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    def dependencies = rootProject.ext.dependencies
+    def testDependencies = rootProject.ext.testDependencies
+    def moduleNames = rootProject.ext.moduleNames
+
+    // Kotlin Lib
+    implementation dependencies.kotlinStdLib
+    implementation dependencies.kotlinReflect
+    implementation dependencies.kotlinSerializationRuntime
+
+    // Android Support
+    implementation dependencies.appCompat
+    implementation dependencies.appCompatResources
+    implementation dependencies.legacyV4
+    implementation dependencies.legacyUtils
+    implementation dependencies.coreKtx
+    implementation dependencies.cardView
+    implementation dependencies.recyclerView
+    implementation dependencies.constraintLayout
+    implementation dependencies.materialDesign
+    implementation dependencies.activityKtx
+    implementation dependencies.fragmentKtx
+    implementation dependencies.preferenceKtx
+
+    // Lifecycle
+    implementation dependencies.lifecycleJava8
+    implementation dependencies.lifecycleViewModel
+    implementation dependencies.lifecycleLiveData
+    implementation dependencies.lifecycleSavedState
+
+    // Navigation
+    implementation dependencies.navigationCommonKtx
+    implementation dependencies.navigationFragmentKtx
+    implementation dependencies.navigationUiKtx
+    implementation dependencies.navigationRuntime
+
+    // Room
+    implementation dependencies.roomRuntime
+    implementation dependencies.roomKtx
+    implementation dependencies.roomRxJava3
+//    implementation dependencies.roomInspector
+    kapt dependencies.roomCompiler
+
+    // Paging
+    implementation dependencies.pagingRuntimeKtx
+    implementation dependencies.pagingRxJava
+
+    // Rx
+    implementation dependencies.rxJava
+    implementation dependencies.rxKotlin
+    implementation dependencies.rxAndroid
+
+    // Retrofit
+    implementation dependencies.retrofit
+    implementation dependencies.retrofitGson
+    implementation dependencies.retrofitRxJava
+
+    // Okhttp
+    implementation dependencies.okHttp
+    implementation dependencies.okHttpLogger
+    implementation dependencies.okHttpUrlConnection
+
+    // Gson
+    implementation dependencies.gson
+
+    // Dagger Hilt
+    implementation dependencies.hiltAndroid
+    implementation dependencies.hiltCore
+    kapt dependencies.hiltCompiler
+
+    // Crashlytics
+//    implementation dependencies.crashlytics
+
+    // Third-party
+    implementation dependencies.picasso
+    implementation dependencies.timber
+
+    // Modules
+    implementation project(moduleNames.persistence)
+    implementation project(moduleNames.rest)
+    implementation project(moduleNames.domain)
+    implementation project(moduleNames.main)
+    implementation project(moduleNames.onboarding)
+    implementation project(moduleNames.shareUtils)
+
+    // Test
+    testImplementation testDependencies.junit
+    androidTestImplementation testDependencies.extJunit
+    androidTestImplementation testDependencies.espresso
+    androidTestImplementation dependencies.hiltAndroidTesting
+}
+
+repositories {
+    mavenCentral()
+}

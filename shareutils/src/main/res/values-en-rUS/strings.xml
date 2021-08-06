@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Error dialog -->
+    <string name="error_title">Error</string>
+    <string name="content_error_loading_data">There was an error loading data</string>
+    <string name="retry">Try again</string>
+    <string name="ok">OK</string>
+
+    <!-- State Error Load Data   -->
+    <string name="error_title_load_data">Oops! there was a failure to load data</string>
+    <string name="try_again">Try again</string>
+
+    <!-- State Loading List   -->
+    <string name="loading_list">Loading…</string>
+
+    <!-- State No Data List   -->
+    <string name="no_data_list">No records found.</string>
+
+    <!-- Home Fragment   -->
+    <string name="search_by_name">Search by name</string>
+    <string name="favorites">Favorites</string>
+    <string name="characters">Characters</string>
+
+</resources>

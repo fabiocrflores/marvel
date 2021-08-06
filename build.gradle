@@ -1,0 +1,33 @@
+buildscript {
+    apply from: 'dependencies.gradle'
+    ext {
+        kotlin_version = '1.5.21'
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        def dependencies = rootProject.ext.buildPluginsDependencies
+
+        classpath dependencies.androidSupport
+//        classpath dependencies.ktlint
+//        classpath dependencies.testLogger
+//        classpath dependencies.jacocoAndroid
+        classpath dependencies.safeArgs
+        classpath dependencies.hilt
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

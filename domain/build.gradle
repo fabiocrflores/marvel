@@ -1,0 +1,39 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
+
+dependencies {
+    def dependencies = rootProject.ext.dependencies
+    def testDependencies = rootProject.ext.testDependencies
+
+    // Kotlin Lib
+    implementation dependencies.kotlinStdLib
+
+    // Rx
+    implementation dependencies.rxJava
+    implementation dependencies.rxKotlin
+
+    // Dagger Hilt
+    implementation dependencies.hiltCore
+    kapt dependencies.hiltCompiler
+
+    // Retrofit
+    implementation dependencies.retrofit
+    implementation dependencies.retrofitGson
+    implementation dependencies.retrofitRxJava
+
+    // Okhttp
+    implementation dependencies.okHttp
+    implementation dependencies.okHttpLogger
+
+    // Gson
+    implementation dependencies.gson
+
+    // Test
+    testImplementation testDependencies.junit
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}

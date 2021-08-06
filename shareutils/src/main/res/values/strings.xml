@@ -1,0 +1,26 @@
+<resources>
+
+    <string name="app_name" translatable="false">Marvel</string>
+
+    <!-- Error dialog -->
+    <string name="error_title">Erro</string>
+    <string name="content_error_loading_data">Ocorreu um erro ao carregar os dados</string>
+    <string name="retry">Tentar novamente</string>
+    <string name="ok">OK</string>
+
+    <!-- State Error Load Data   -->
+    <string name="error_title_load_data">Ops! Houve uma falha ao carregar os dados</string>
+    <string name="try_again">Tentar novamente</string>
+
+    <!-- State Loading List   -->
+    <string name="loading_list">Carregando…</string>
+
+    <!-- State No Data List   -->
+    <string name="no_data_list">Nenhum registro encontrado.</string>
+
+    <!-- Home Fragment   -->
+    <string name="search_by_name">Buscar por nome</string>
+    <string name="favorites">Favoritos</string>
+    <string name="characters">Personagens</string>
+
+</resources>

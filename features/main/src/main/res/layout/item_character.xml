@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="presentation"
+            type="com.marvel.developer.domain.models.character.Character" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/black"
+            android:padding="8dp">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/image_character"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:imageUrl="@{presentation.imageUrl}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@tools:sample/avatars" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_name"
+                style="@style/Font.Body.Black.AllCaps"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:gravity="center"
+                android:text="@{presentation.name}"
+                app:layout_constraintEnd_toStartOf="@+id/image_favorite"
+                app:layout_constraintStart_toEndOf="@+id/image_character"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Homem de Ferro" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/text_description"
+                style="@style/Font.Caption.Regular"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{presentation.description}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/image_character"
+                app:layout_constraintTop_toBottomOf="@+id/text_name"
+                tools:text="O mais forte dos Vingadores" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/image_favorite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@{presentation.isFavorite ? @drawable/ic_selected_favorite_red : @drawable/ic_select_favorite_white}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:src="@drawable/ic_select_favorite_white" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</layout>

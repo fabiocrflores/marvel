@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Esse arquivo representa o Design System Typography -->
+
+    <!-- Display 1 -->
+    <style name="Font.Display1.Light" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_size_display_1</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/gotham_light_family</item>
+    </style>
+
+    <style name="Font.Display1.Regular" parent="Font.Display1.Light">
+        <item name="android:fontFamily">@font/gotham_book_family</item>
+    </style>
+
+    <style name="Font.Display1.Bold" parent="Font.Display1.Light">
+        <item name="android:fontFamily">@font/gotham_bold_family</item>
+    </style>
+
+    <style name="Font.Display1.Black" parent="Font.Display1.Light">
+        <item name="android:fontFamily">@font/gotham_black_family</item>
+    </style>
+
+    <!-- Display 2 -->
+    <style name="Font.Display2.Light" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_size_display_2</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/gotham_light_family</item>
+    </style>
+
+    <style name="Font.Display2.Regular" parent="Font.Display2.Light">
+        <item name="android:fontFamily">@font/gotham_book_family</item>
+    </style>
+
+    <style name="Font.Display2.Bold" parent="Font.Display2.Light">
+        <item name="android:fontFamily">@font/gotham_bold_family</item>
+    </style>
+
+    <style name="Font.Display2.Black" parent="Font.Display2.Light">
+        <item name="android:fontFamily">@font/gotham_black_family</item>
+    </style>
+
+    <!-- Display 3 -->
+    <style name="Font.Display3.Light" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_size_display_3</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/gotham_light_family</item>
+    </style>
+
+    <style name="Font.Display3.Regular" parent="Font.Display3.Light">
+        <item name="android:fontFamily">@font/gotham_book_family</item>
+    </style>
+
+    <style name="Font.Display3.Bold" parent="Font.Display3.Light">
+        <item name="android:fontFamily">@font/gotham_bold_family</item>
+    </style>
+
+    <style name="Font.Display3.Black" parent="Font.Display3.Light">
+        <item name="android:fontFamily">@font/gotham_black_family</item>
+    </style>
+
+    <!-- Title -->
+    <style name="Font.Title.Light" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_size_title</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/gotham_light_family</item>
+    </style>
+
+    <style name="Font.Title.Regular" parent="Font.Title.Light">
+        <item name="android:fontFamily">@font/gotham_book_family</item>
+    </style>
+
+    <style name="Font.Title.Bold" parent="Font.Title.Light">
+        <item name="android:fontFamily">@font/gotham_bold_family</item>
+    </style>
+
+    <style name="Font.Title.Black" parent="Font.Title.Light">
+        <item name="android:fontFamily">@font/gotham_black_family</item>
+    </style>
+
+    <style name="Font.Title.Black.AllCaps" parent="Font.Title.Black">
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- Headline -->
+    <style name="Font.Headline.Light" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_size_headline</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/gotham_light_family</item>
+    </style>
+
+    <style name="Font.Headline.Regular" parent="Font.Headline.Light">
+        <item name="android:fontFamily">@font/gotham_book_family</item>
+    </style>
+
+    <style name="Font.Headline.Bold" parent="Font.Headline.Light">
+        <item name="android:fontFamily">@font/gotham_bold_family</item>
+    </style>
+
+    <style name="Font.Headline.Bold.AllCaps" parent="Font.Headline.Bold">
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="Font.Headline.Black" parent="Font.Headline.Light">
+        <item name="android:fontFamily">@font/gotham_black_family</item>
+    </style>
+
+    <style name="Font.Headline.Regular.WhiteText.Shadow" parent="Font.Headline.Regular">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:shadowColor">@color/black</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">3</item>
+    </style>
+
+    <style name="Font.Headline.Bold.WhiteText.Shadow" parent="Font.Headline.Regular.WhiteText.Shadow">
+        <item name="android:fontFamily">@font/gotham_bold_family</item>
+    </style>
+
+    <!-- Subhead -->
+    <style name="Font.Subhead.Regular" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_size_subhead</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/gotham_book_family</item>
+    </style>
+
+    <style name="Font.Subhead.Black" parent="Font.Subhead.Regular">
+        <item name="android:fontFamily">@font/gotham_black_family</item>
+    </style>
+
+    <style name="Font.Subhead.Black.AllCaps" parent="Font.Subhead.Black">
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="Font.Subhead.Bold" parent="Font.Subhead.Regular">
+        <item name="android:fontFamily">@font/gotham_bold_family</item>
+    </style>
+
+    <!-- Body -->
+    <style name="Font.Body.Regular" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_size_body</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/gotham_book_family</item>
+    </style>
+
+    <style name="Font.Body.Bold" parent="Font.Body.Regular">
+        <item name="android:fontFamily">@font/gotham_bold_family</item>
+    </style>
+
+    <style name="Font.Body.Bold.AllCaps" parent="Font.Body.Bold">
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="Font.Body.Black" parent="Font.Body.Regular">
+        <item name="android:fontFamily">@font/gotham_black_family</item>
+    </style>
+
+    <style name="Font.Body.Black.AllCaps" parent="Font.Body.Black">
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="Font.Body.Regular.WhiteText.Shadow" parent="Font.Body.Regular">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:shadowColor">@color/black</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">3</item>
+    </style>
+
+    <!-- Caption -->
+    <style name="Font.Caption.Regular" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_size_caption</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/gotham_book_family</item>
+    </style>
+
+    <style name="Font.Caption.Bold" parent="Font.Caption.Regular">
+        <item name="android:fontFamily">@font/gotham_bold_family</item>
+    </style>
+
+    <style name="Font.Caption.Bold.AllCaps" parent="Font.Caption.Bold">
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="Font.Caption.Black" parent="Font.Caption.Regular">
+        <item name="android:fontFamily">@font/gotham_black_family</item>
+    </style>
+
+    <style name="Font.Caption.Black.AllCaps" parent="Font.Caption.Black">
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <!-- Footnote -->
+    <style name="Font.Footnote.Regular" parent="Widget.AppCompat.TextView">
+        <item name="android:textSize">@dimen/text_size_footnote</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/gotham_book_family</item>
+    </style>
+
+    <style name="Font.Footnote.Bold" parent="Font.Footnote.Regular">
+        <item name="android:fontFamily">@font/gotham_bold_family</item>
+    </style>
+
+    <style name="Font.Footnote.Bold.AllCaps" parent="Font.Footnote.Bold">
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="Font.Footnote.Black" parent="Font.Footnote.Regular">
+        <item name="android:fontFamily">@font/gotham_black_family</item>
+    </style>
+
+    <style name="Font.Footnote.Black.AllCaps" parent="Font.Footnote.Black">
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="Font.Footnote.Regular.WhiteText.Shadow" parent="Font.Footnote.Regular">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:shadowColor">@color/black</item>
+        <item name="android:shadowRadius">1</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">3</item>
+    </style>
+
+    <style name="Font.Footnote.Bold.WhiteText.Shadow" parent="Font.Footnote.Regular.WhiteText.Shadow">
+        <item name="android:fontFamily">@font/gotham_bold_family</item>
+    </style>
+
+    <style name="Font.Footnote.White.AllCaps.WhiteText.Shadow" parent="Font.Footnote.Regular.WhiteText.Shadow">
+        <item name="android:fontFamily">@font/gotham_black_family</item>
+        <item name="android:textAllCaps">true</item>
+
+    </style>
+
+</resources>

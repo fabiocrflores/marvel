@@ -1,0 +1,95 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    def globalConfiguration = rootProject.extensions.getByName("ext")
+
+    compileSdkVersion globalConfiguration["compileSdk"]
+
+    defaultConfig {
+        minSdkVersion globalConfiguration["minSdk"]
+        targetSdkVersion globalConfiguration["targetSdk"]
+
+        vectorDrawables.useSupportLibrary = true
+    }
+
+    kotlinOptions {
+        jvmTarget = globalConfiguration["jvmTarget"]
+    }
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    def dependencies = rootProject.ext.dependencies
+    def testDependencies = rootProject.ext.testDependencies
+    def moduleNames = rootProject.ext.moduleNames
+
+    // Kotlin Lib
+    implementation dependencies.kotlinStdLib
+
+    // Android Support
+    implementation dependencies.appCompat
+    implementation dependencies.appCompatResources
+    implementation dependencies.legacyV4
+    implementation dependencies.legacyUtils
+    implementation dependencies.coreKtx
+    implementation dependencies.cardView
+    implementation dependencies.recyclerView
+    implementation dependencies.constraintLayout
+    implementation dependencies.materialDesign
+    implementation dependencies.fragmentKtx
+
+    // Lifecycle
+    implementation dependencies.lifecycleJava8
+    implementation dependencies.lifecycleViewModel
+    implementation dependencies.lifecycleLiveData
+    implementation dependencies.lifecycleSavedState
+
+    // Room
+    implementation dependencies.roomRuntime
+    implementation dependencies.roomKtx
+    implementation dependencies.roomRxJava3
+//    implementation dependencies.roomInspector
+    kapt dependencies.roomCompiler
+
+    // Rx
+    implementation dependencies.rxJava
+    implementation dependencies.rxKotlin
+    implementation dependencies.rxAndroid
+
+    // Okhttp
+    implementation dependencies.okHttp
+    implementation dependencies.okHttpLogger
+    implementation dependencies.okHttpUrlConnection
+
+    // Dagger Hilt
+    implementation dependencies.hiltAndroid
+    implementation dependencies.hiltCore
+    kapt dependencies.hiltCompiler
+
+    // Third-party
+    implementation dependencies.picasso
+    implementation dependencies.timber
+
+//    implementation project(moduleNames.persistence)
+    implementation project(moduleNames.domain)
+
+    testImplementation testDependencies.junit
+    androidTestImplementation testDependencies.extJunit
+    androidTestImplementation testDependencies.espresso
+}
+
+repositories {
+    mavenCentral()
+}

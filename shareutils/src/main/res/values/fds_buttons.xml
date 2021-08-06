@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Esse arquivo representa o Design System Buttons -->
+
+    <!-- Button Small -->
+    <style name="Button.Small" parent="Widget.AppCompat.Button">
+        <item name="android:textSize">@dimen/button_text_size_small</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:fontFamily">@font/gotham_bold_family</item>
+        <item name="android:layout_height">@dimen/button_height_small</item>
+        <item name="android:paddingLeft">@dimen/button_padding_horizontal</item>
+        <item name="android:paddingRight">@dimen/button_padding_horizontal</item>
+        <item name="android:stateListAnimator" tools:targetApi="lollipop">@animator/animate_scale</item>
+    </style>
+
+    <!-- Button Small Primary -->
+    <style name="Button.Small.Primary" parent="Button.Small">
+        <item name="android:background">@drawable/bg_button_primary</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Button Small Secondary -->
+    <style name="Button.Small.Secondary" parent="Button.Small">
+        <item name="android:background">@drawable/bg_button_secondary</item>
+    </style>
+
+    <!-- Button Small Tertiary -->
+    <style name="Button.Small.Tertiary" parent="Button.Small">
+        <item name="android:background">@drawable/bg_button_tertiary</item>
+    </style>
+
+    <!-- Button Small Tertiary Dark -->
+    <style name="Button.Small.Tertiary.Dark" parent="Button.Small.Tertiary">
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <!-- Button Medium Tertiary Destructive -->
+    <style name="Button.Small.Tertiary.Destructive" parent="Button.Small.Tertiary">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <!-- Button Small Ghost -->
+    <style name="Button.Small.Ghost" parent="Button.Small">
+        <item name="android:background">@drawable/bg_button_ghost</item>
+    </style>
+
+    <!-- Button Small Outline Dark -->
+    <style name="Button.Small.Outline.Dark" parent="Button.Small">
+        <item name="android:background">@drawable/bg_button_outline_dark</item>
+    </style>
+
+    <!-- Button Medium -->
+    <style name="Button.Medium" parent="Button.Small">
+        <item name="android:textSize">@dimen/button_text_size_medium</item>
+        <item name="android:layout_height">@dimen/button_height_medium</item>
+    </style>
+
+    <!-- Button Medium Primary -->
+    <style name="Button.Medium.Primary" parent="Button.Medium">
+        <item name="android:background">@drawable/bg_button_primary</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Button Medium Secondary -->
+    <style name="Button.Medium.Secondary" parent="Button.Medium">
+        <item name="android:background">@drawable/bg_button_secondary</item>
+    </style>
+
+    <!-- Button Medium Secondary Dark -->
+    <style name="Button.Medium.Secondary.Dark" parent="Button.Medium">
+        <item name="android:background">@drawable/bg_button_secondary_dark</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Button Medium Tertiary -->
+    <style name="Button.Medium.Tertiary" parent="Button.Medium">
+        <item name="android:background">@drawable/bg_button_tertiary</item>
+    </style>
+
+    <!-- Button Medium Tertiary Dark -->
+    <style name="Button.Medium.Tertiary.Dark" parent="Button.Medium.Tertiary">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Button Medium Tertiary Destructive -->
+    <style name="Button.Medium.Tertiary.Destructive" parent="Button.Medium.Tertiary">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+    <!-- Button Medium Ghost -->
+    <style name="Button.Medium.Ghost" parent="Button.Medium">
+        <item name="android:background">@drawable/bg_button_ghost</item>
+    </style>
+
+    <!-- Button Medium Ghost Dark -->
+    <style name="Button.Medium.Ghost.Dark" parent="Button.Medium">
+        <item name="android:background">@drawable/bg_button_ghost_dark</item>
+    </style>
+
+    <!-- Button Medium Outline -->
+    <style name="Button.Medium.Outline" parent="Button.Medium">
+        <item name="android:background">@drawable/bg_button_outline</item>
+    </style>
+
+    <!-- Button Medium Outline Dark -->
+    <style name="Button.Medium.Outline.Dark" parent="Button.Medium">
+        <item name="android:background">@drawable/bg_button_outline_dark</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <!-- Button Medium Light -->
+    <style name="Button.Medium.Light" parent="Button.Medium">
+        <item name="android:background">@drawable/bg_button_light</item>
+    </style>
+
+    <!-- Button Medium Light Destructive -->
+    <style name="Button.Medium.Light.Destructive" parent="Button.Medium">
+        <item name="android:background">@drawable/bg_button_light</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
+
+
+</resources>

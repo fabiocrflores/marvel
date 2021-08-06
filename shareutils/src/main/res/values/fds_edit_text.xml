@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Esse arquivo representa o Design System Typography -->
+
+    <!-- Text Field Medium -->
+    <style name="TextField.Medium" parent="Widget.AppCompat.EditText">
+        <item name="android:textSize">@dimen/text_field_size_medium</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/steel</item>
+        <item name="android:textCursorDrawable">@null</item>
+        <item name="android:fontFamily">@font/gotham_book_family</item>
+        <item name="android:layout_height">@dimen/text_field_height_medium</item>
+        <item name="android:paddingLeft">@dimen/text_field_padding_horizontal</item>
+        <item name="android:paddingRight">@dimen/text_field_padding_horizontal</item>
+        <item name="android:background">@drawable/selector_text_field_medium</item>
+    </style>
+
+    <!-- Text Field Large -->
+    <style name="TextField.Large" parent="TextField.Medium">
+        <item name="android:textSize">@dimen/text_field_size_large</item>
+        <item name="android:layout_height">@dimen/text_field_height_large</item>
+        <item name="android:background">@drawable/selector_text_field_large</item>
+    </style>
+
+    <!-- Text Search Field Medium -->
+    <style name="TextSearchField.Medium" parent="TextField.Medium">
+        <item name="android:drawableStart">@drawable/ic_search_steel</item>
+        <item name="android:drawablePadding">@dimen/text_search_field_drawable_padding</item>
+        <item name="android:paddingLeft">@dimen/text_search_field_padding_left</item>
+        <item name="android:paddingRight">@dimen/text_search_field_padding_right</item>
+        <item name="android:background">@drawable/bg_text_search_field_medium</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <!-- Search Field Medium -->
+    <style name="SearchField.Medium" parent="TextField.Medium">
+        <item name="android:padding">8dp</item>
+        <item name="android:background">@drawable/bg_text_search_field_medium</item>
+        <item name="searchIcon">@drawable/ic_search_steel</item>
+        <item name="closeIcon">@drawable/ic_cancel_steel</item>
+        <item name="iconifiedByDefault">false</item>
+        <item name="queryBackground">@null</item>
+        <item name="submitBackground">@null</item>
+    </style>
+
+</resources>

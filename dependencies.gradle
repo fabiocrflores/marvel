@@ -1,0 +1,167 @@
+ext {
+
+    // Android Config
+    minSdk = 26
+    targetSdk = 30
+    versionCode = 2
+    versionName = "1.0.0"
+    compileSdk = targetSdk
+    jvmTarget = "1.8"
+
+    // Versions
+    buildToolsVersion = "30.0.2"
+
+    kotlinVersion = '1.4.32'
+    kotlinSerializationRuntimeVersion = '0.14.0'
+    ktlintVersion = "8.2.0"
+    testLoggerVersion = "1.7.1" //2.1.1 not compatible gradle 4.x
+    jacocoAndroidVersion = "0.2"
+    safeArgsVersion = "2.3.5"
+
+    buildGradleVersion = '4.2.1'
+
+    appCompatVersion = "1.3.0"
+    appCompatResourcesVersion = "1.3.0"
+    legacyV4Version = "1.0.0"
+    legacyUtilsVersion = "1.0.0"
+    coreKtxVersion = "1.3.2"
+    cardViewVersion = "1.0.0"
+    recyclerViewVersion = "1.2.0"
+    constraintLayoutVersion = "2.0.1"
+    materialDesignVersion = "1.3.0"
+    annotationVersion = "1.1.0"
+    activityKtxVersion = "1.2.3"
+    fragmentKtxVersion = "1.3.3"
+    preferenceKtxVersion = "1.1.1"
+
+    lifecycleVersion = "2.3.1"
+
+    navigationVersion = "2.3.5"
+
+    roomVersion = "2.3.0"
+    roomInspectorVersion = "1.0.2"
+
+    rxJavaVersion = "3.0.12"
+    rxKotlinVersion = "3.0.1"
+    rxAndroidVersion = "3.0.0"
+
+    pagingVersion = "3.1.0-alpha03"
+
+    retrofitVersion = "2.9.0"
+    retrofitScalars = "2.9.0"
+    retrofitGsonVersion = "2.9.0"
+    retrofitRxJavaVersion = "2.9.0"
+
+    okHttpVersion = "3.14.9"
+
+    gsonVersion = "2.8.6"
+
+    hiltVersion = "2.35"
+
+    picassoVersion = "2.71828"
+    timberVersion = "4.7.1"
+
+    junitVersion = "4.12"
+    extJunitVersion = "1.1.1"
+    espressoVersion = "3.2.0"
+    assertj = "3.14.0"
+    mockitoCore = "3.7.7"
+    mockitoKotlin = "2.2.0"
+
+    dependencies = [
+            kotlinStdLib              : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
+            kotlinReflect             : "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion",
+            kotlinSerializationRuntime: "org.jetbrains.kotlinx:kotlinx-serialization-runtime:$kotlinSerializationRuntimeVersion",
+
+            appCompat                 : "androidx.appcompat:appcompat:$appCompatVersion",
+            appCompatResources        : "androidx.appcompat:appcompat-resources:$appCompatResourcesVersion",
+            legacyV4                  : "androidx.legacy:legacy-support-v4:$legacyV4Version",
+            legacyUtils               : "androidx.legacy:legacy-support-core-utils:$legacyUtilsVersion",
+            coreKtx                   : "androidx.core:core-ktx:$coreKtxVersion",
+            cardView                  : "androidx.cardview:cardview:$cardViewVersion",
+            recyclerView              : "androidx.recyclerview:recyclerview:$recyclerViewVersion",
+            constraintLayout          : "androidx.constraintlayout:constraintlayout:$constraintLayoutVersion",
+            materialDesign            : "com.google.android.material:material:$materialDesignVersion",
+            annotation                : "androidx.annotation:annotation:$annotationVersion",
+            activityKtx               : "androidx.activity:activity-ktx:$activityKtxVersion",
+            fragmentKtx               : "androidx.fragment:fragment-ktx:$fragmentKtxVersion",
+            preferenceKtx             : "androidx.preference:preference-ktx:$preferenceKtxVersion",
+
+            lifecycleJava8            : "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion",
+            lifecycleViewModel        : "androidx.lifecycle:lifecycle-viewmodel:$lifecycleVersion",
+            lifecycleLiveData         : "androidx.lifecycle:lifecycle-livedata:$lifecycleVersion",
+            lifecycleSavedState       : "androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycleVersion",
+
+            navigationCommonKtx       : "androidx.navigation:navigation-common-ktx:$navigationVersion",
+            navigationFragmentKtx     : "androidx.navigation:navigation-fragment-ktx:$navigationVersion",
+            navigationUiKtx           : "androidx.navigation:navigation-ui-ktx:$navigationVersion",
+            navigationRuntime         : "androidx.navigation:navigation-runtime-ktx:$navigationVersion",
+
+            roomRuntime               : "androidx.room:room-runtime:$roomVersion",
+            roomCompiler              : "androidx.room:room-compiler:$roomVersion",
+            roomKtx                   : "androidx.room:room-ktx:$roomVersion",
+            roomRxJava3               : "androidx.room:room-rxjava3:$roomVersion",
+            roomTesting               : "androidx.room:room-testing:$roomVersion",
+            roomInspector             : "com.ktvipin:roominspector:$roomInspectorVersion",
+
+            pagingRuntimeKtx          : "androidx.paging:paging-runtime-ktx:$pagingVersion",
+            pagingRxJava              : "androidx.paging:paging-rxjava3:$pagingVersion",
+
+            rxJava                    : "io.reactivex.rxjava3:rxjava:$rxJavaVersion",
+            rxKotlin                  : "io.reactivex.rxjava3:rxjava:$rxKotlinVersion",
+            rxAndroid                 : "io.reactivex.rxjava3:rxandroid:$rxAndroidVersion",
+
+            retrofit                  : "com.squareup.retrofit2:retrofit:$retrofitVersion",
+            retrofitScalars           : "com.squareup.retrofit2:converter-scalars:$retrofitScalars",
+            retrofitGson              : "com.squareup.retrofit2:converter-gson:$retrofitGsonVersion",
+            retrofitRxJava            : "com.squareup.retrofit2:adapter-rxjava3:$retrofitRxJavaVersion",
+
+            okHttp                    : "com.squareup.okhttp3:okhttp:$okHttpVersion",
+            okHttpLogger              : "com.squareup.okhttp3:logging-interceptor:$okHttpVersion",
+            okHttpUrlConnection       : "com.squareup.okhttp3:okhttp-urlconnection:$okHttpVersion",
+
+            gson                      : "com.google.code.gson:gson:$gsonVersion",
+
+            hiltAndroid               : "com.google.dagger:hilt-android:$hiltVersion",
+            hiltCore                  : "com.google.dagger:hilt-core:$hiltVersion",
+            hiltCompiler              : "com.google.dagger:hilt-compiler:$hiltVersion",
+            hiltAndroidTesting        : "com.google.dagger:hilt-android-testing:$hiltVersion",
+
+            picasso                   : "com.squareup.picasso:picasso:$picassoVersion",
+            timber                    : "com.jakewharton.timber:timber:$timberVersion"
+    ]
+
+    buildPluginsDependencies = [
+            androidSupport: "com.android.tools.build:gradle:$buildGradleVersion",
+            kotlinSupport : "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion",
+            kotlinAndroid : "org.jetbrains.kotlin:kotlin-android-extensions:$kotlinVersion",
+            ktlint        : "org.jlleitschuh.gradle:ktlint-gradle:$ktlintVersion",
+            testLogger    : "com.adarshr:gradle-test-logger-plugin:$testLoggerVersion",
+            jacocoAndroid : "com.hiya:jacoco-android:$jacocoAndroidVersion",
+            safeArgs      : "androidx.navigation:navigation-safe-args-gradle-plugin:$safeArgsVersion",
+            hilt          : "com.google.dagger:hilt-android-gradle-plugin:${hiltVersion}"
+    ]
+
+    testDependencies = [
+            junit        : "junit:junit:$junitVersion",
+            extJunit     : "androidx.test.ext:junit:$extJunitVersion",
+            espresso     : "androidx.test.espresso:espresso-core:$espressoVersion",
+            assertj      : "org.assertj:assertj-core:$assertj",
+            mockitoCore  : "org.mockito:mockito-core:$mockitoCore",
+            mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlin",
+    ]
+
+    moduleNames = [
+            mainApp      : ":app",
+
+            persistence  : ":data:persistence",
+            rest         : ":data:rest",
+
+            domain       : ":domain",
+
+            main         : ":features:main",
+            onboarding   : ":features:onboarding",
+
+            shareUtils   : ":shareutils"
+    ]
+}
