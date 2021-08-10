@@ -12,7 +12,7 @@ import javax.inject.Inject
 @HiltViewModel
 class FavoritesViewModel @Inject constructor(
     private val repository: CharacterRepository,
-    private val machineSchedules: StateMachine<List<Character>>
+    private val machine: StateMachine<List<Character>>
 ) : ViewModel() {
 
     val characters = mutableListOf<Character>()
@@ -20,7 +20,7 @@ class FavoritesViewModel @Inject constructor(
 
     fun fetchFavoriteCharactersCached(): Flowable<ViewState<List<Character>>> =
         repository.fetchFavoriteCharactersCached()
-            .compose(machineSchedules)
+            .compose(machine)
 
     fun deleteFavoriteCharacterCached(model: Character) {
         repository.deleteFavoriteCharacterCached(model)

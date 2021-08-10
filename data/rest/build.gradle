@@ -17,6 +17,13 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    testOptions {
+        unitTests {
+            includeAndroidResources = true
+            returnDefaultValues = true
+        }
+    }
 }
 
 dependencies {
@@ -55,11 +62,15 @@ dependencies {
 
     implementation project(moduleNames.domain)
 
+    // Test
     testImplementation testDependencies.junit
+    testImplementation testDependencies.extJunit
+    testImplementation testDependencies.assertj
     testImplementation testDependencies.mockitoCore
     testImplementation testDependencies.mockitoKotlin
-    androidTestImplementation testDependencies.extJunit
-    androidTestImplementation testDependencies.espresso
+    testImplementation testDependencies.mockWebServer
+    testImplementation testDependencies.roboletric
+    testImplementation testDependencies.testCoreKtx
 }
 
 repositories {

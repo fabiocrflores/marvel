@@ -11,11 +11,24 @@ android {
     defaultConfig {
         minSdkVersion globalConfiguration["minSdk"]
         targetSdkVersion globalConfiguration["targetSdk"]
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        String sharedTestDir = 'src/sharedTest/java'
+
+        androidTest {
+            java.srcDirs += sharedTestDir
+        }
+        test {
+            java.srcDirs += sharedTestDir
+        }
     }
 }
 
@@ -46,10 +59,24 @@ dependencies {
 
     implementation project(moduleNames.domain)
 
+    // Test
     testImplementation testDependencies.junit
+    testImplementation testDependencies.extJunit
     testImplementation testDependencies.assertj
+    testImplementation testDependencies.mockitoCore
+    testImplementation testDependencies.mockitoKotlin
+    testImplementation testDependencies.roboletric
+    testImplementation testDependencies.testCoreKtx
+    testImplementation dependencies.coreTesting
+    testImplementation dependencies.roomTesting
+
+    androidTestImplementation testDependencies.junit
     androidTestImplementation testDependencies.extJunit
     androidTestImplementation testDependencies.espresso
+    androidTestImplementation testDependencies.testRunner
+    androidTestImplementation testDependencies.testCoreKtx
+    androidTestImplementation dependencies.coreTesting
+    androidTestImplementation dependencies.hiltAndroidTesting
 }
 
 repositories {

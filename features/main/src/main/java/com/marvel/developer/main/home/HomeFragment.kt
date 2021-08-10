@@ -68,9 +68,9 @@ class HomeFragment : BaseFragmentDataBinding<FragmentHomeBinding>(
         setupEditors()
         setupSubject()
 
-        viewModel.characters.value?.let {
-            handleSuccess(it)
-        } ?: fetchCharacters()
+        viewModel.characters?.let {
+            handleCharactersSuccess(it)
+        } ?: fetchFavoriteCharactersCached()
 
         setFragmentResultListener(HOME_REQUEST_KEY_VALUE) { _, bundle ->
             if (bundle.containsKey(FAVORITE_RESULT_KEY_VALUE)) {
@@ -185,8 +185,8 @@ class HomeFragment : BaseFragmentDataBinding<FragmentHomeBinding>(
         disposer.collect(toDispose)
     }
 
-    private fun fetchCharacters() {
-        val toDispose = viewModel.fetchCharacters()
+    private fun fetchFavoriteCharactersCached() {
+        val toDispose = viewModel.fetchFavoriteCharactersCached()
             .subscribe(
                 { changeState(it) },
                 { handleError(it) }
@@ -195,12 +195,12 @@ class HomeFragment : BaseFragmentDataBinding<FragmentHomeBinding>(
         disposer.collect(toDispose)
     }
 
-    private fun changeState(event: ViewState<PagingData<Character>>) {
+    private fun changeState(event: ViewState<List<Character>>) {
         when (event) {
             is ViewState.Launched -> startExecution()
-            is ViewState.Success -> handleSuccess(event.value)
+            is ViewState.Success -> handleFavoritesSuccess(event.value)
             is ViewState.Failed -> handleError(event.reason)
-            is ViewState.Done -> Unit
+            is ViewState.Done -> fetchCharacters()
         }
     }
 
@@ -208,12 +208,32 @@ class HomeFragment : BaseFragmentDataBinding<FragmentHomeBinding>(
         binding.stateView.setState(LOADING)
     }
 
-    private fun handleSuccess(
+    private fun handleFavoritesSuccess(
+        presentation: List<Character>
+    ) {
+        Timber.d("$presentation")
+
+        viewModel.favoriteCharacters.addAll(presentation)
+    }
+
+    private fun fetchCharacters() {
+        val toDispose = viewModel.fetchCharacters()
+            .subscribe(
+                { handleCharactersSuccess(it) },
+                { handleError(it) }
+            )
+
+        disposer.collect(toDispose)
+    }
+
+    private fun handleCharactersSuccess(
         presentation: PagingData<Character>
     ) {
         Timber.d("$presentation")
 
-        viewModel.characters.value = presentation
+        viewModel.characters = presentation
+
+
         characterAdapter.submitData(lifecycle, presentation)
     }
 

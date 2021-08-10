@@ -4,7 +4,7 @@ ext {
     minSdk = 26
     targetSdk = 30
     versionCode = 2
-    versionName = "1.0.0"
+    versionName = "1.0.1"
     compileSdk = targetSdk
     jvmTarget = "1.8"
 
@@ -34,12 +34,16 @@ ext {
     fragmentKtxVersion = "1.3.3"
     preferenceKtxVersion = "1.1.1"
 
+    archCoreVersion = "2.1.0"
+
     lifecycleVersion = "2.3.1"
 
     navigationVersion = "2.3.5"
 
     roomVersion = "2.3.0"
     roomInspectorVersion = "1.0.2"
+
+    coroutinesVersion = "1.3.9"
 
     rxJavaVersion = "3.0.12"
     rxKotlinVersion = "3.0.1"
@@ -64,9 +68,13 @@ ext {
     junitVersion = "4.12"
     extJunitVersion = "1.1.1"
     espressoVersion = "3.2.0"
-    assertj = "3.14.0"
-    mockitoCore = "3.7.7"
-    mockitoKotlin = "2.2.0"
+    testRunnerVersion = "1.1.1"
+    testCoreKtxVersion = "1.3.0"
+
+    assertjVersion = "3.14.0"
+    mockitoCoreVersion = "3.7.7"
+    mockitoKotlinVersion = "2.2.0"
+    roboletricVersion = "4.3"
 
     dependencies = [
             kotlinStdLib              : "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion",
@@ -87,6 +95,8 @@ ext {
             fragmentKtx               : "androidx.fragment:fragment-ktx:$fragmentKtxVersion",
             preferenceKtx             : "androidx.preference:preference-ktx:$preferenceKtxVersion",
 
+            coreTesting               : "androidx.arch.core:core-testing:${archCoreVersion}",
+
             lifecycleJava8            : "androidx.lifecycle:lifecycle-common-java8:$lifecycleVersion",
             lifecycleViewModel        : "androidx.lifecycle:lifecycle-viewmodel:$lifecycleVersion",
             lifecycleLiveData         : "androidx.lifecycle:lifecycle-livedata:$lifecycleVersion",
@@ -106,6 +116,8 @@ ext {
 
             pagingRuntimeKtx          : "androidx.paging:paging-runtime-ktx:$pagingVersion",
             pagingRxJava              : "androidx.paging:paging-rxjava3:$pagingVersion",
+
+            coroutinesTest            : "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesVersion",
 
             rxJava                    : "io.reactivex.rxjava3:rxjava:$rxJavaVersion",
             rxKotlin                  : "io.reactivex.rxjava3:rxjava:$rxKotlinVersion",
@@ -146,9 +158,13 @@ ext {
             junit        : "junit:junit:$junitVersion",
             extJunit     : "androidx.test.ext:junit:$extJunitVersion",
             espresso     : "androidx.test.espresso:espresso-core:$espressoVersion",
-            assertj      : "org.assertj:assertj-core:$assertj",
-            mockitoCore  : "org.mockito:mockito-core:$mockitoCore",
-            mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlin",
+            testRunner   : "androidx.test:runner:$testRunnerVersion",
+            testCoreKtx  : "androidx.test:core-ktx:$testCoreKtxVersion",
+            assertj      : "org.assertj:assertj-core:$assertjVersion",
+            mockitoCore  : "org.mockito:mockito-core:$mockitoCoreVersion",
+            mockitoKotlin: "com.nhaarman.mockitokotlin2:mockito-kotlin:$mockitoKotlinVersion",
+            mockWebServer: "com.squareup.okhttp3:mockwebserver:$okHttpVersion",
+            roboletric   : "org.robolectric:robolectric:$roboletricVersion"
     ]
 
     moduleNames = [

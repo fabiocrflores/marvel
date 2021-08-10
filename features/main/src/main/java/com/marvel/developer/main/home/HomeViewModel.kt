@@ -22,7 +22,7 @@ import javax.inject.Inject
 @HiltViewModel
 class HomeViewModel @Inject constructor(
     private val repository: CharacterRepository,
-    private val machineSchedules: StateMachine<PagingData<Character>>,
+    private val machine: StateMachine<List<Character>>,
     private val stateHandle: SavedStateHandle
 ) : ViewModel() {
 
@@ -39,28 +39,34 @@ class HomeViewModel @Inject constructor(
             stateHandle.set(NAME_BY_FILTER_KEY_VALUE, value)
         }
 
-    val characters = MutableLiveData<PagingData<Character>>(null)
+    var characters: PagingData<Character>? = null
+    val favoriteCharacters = mutableListOf<Character>()
+
+    fun fetchFavoriteCharactersCached(): Flowable<ViewState<List<Character>>> =
+        repository.fetchFavoriteCharactersCached()
+            .compose(machine)
 
     @ExperimentalCoroutinesApi
-    fun fetchCharacters(): Flowable<ViewState<PagingData<Character>>> =
+    fun fetchCharacters(): Flowable<PagingData<Character>> =
         Pager(config = PagingConfig(pageSize = 20, enablePlaceholders = false),
             pagingSourceFactory = {
                 CharacterDataSource(
                     repository = repository,
-                    nameByFilter = if (nameByFilter.value!!.isEmpty()) null else nameByFilter.value
+                    nameByFilter = if (nameByFilter.value!!.isEmpty()) null else nameByFilter.value,
+                    favoriteCharacters = favoriteCharacters
                 )
             }
         )
             .flowable.cachedIn(viewModelScope)
-            .compose(machineSchedules)
-
 
     fun setFavoriteCharacterCache(model: Character) {
         model.isFavorite = !model.isFavorite
         if (model.isFavorite) {
             repository.saveFavoriteCharacterCache(model)
+            favoriteCharacters.add(model)
         } else {
             repository.deleteFavoriteCharacterCached(model)
+            favoriteCharacters.remove(model)
         }
     }
 }

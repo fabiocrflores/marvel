@@ -74,7 +74,10 @@ abstract class RestModule {
 
         @Provides
         @Singleton
-        fun provideRetrofit(client: OkHttpClient): Retrofit = BuildRetrofit(client)
+        fun provideRetrofit(client: OkHttpClient): Retrofit = BuildRetrofit(
+            "https://gateway.marvel.com/",
+            client
+        )
 
         @Provides
         @Singleton

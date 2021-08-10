@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 class CharacterInfrastructure @Inject constructor(
     private val service: MarvelAPI,
-    private val characterResultMapper: CharacterResultMapper,
+    private val mapper: CharacterResultMapper,
     private val errorHandler: ExecutionErrorHandler<CharacterResultResponse>,
     private val targetScheduler: Scheduler
 ) : CharacterService {
@@ -22,6 +22,6 @@ class CharacterInfrastructure @Inject constructor(
             .fetchCharacters(nameStartsWith = nameByFilter, offset = offset)
             .subscribeOn(targetScheduler)
             .compose(errorHandler)
-            .map { characterResultMapper.fromResponse(it) }
+            .map { mapper.fromResponse(it) }
 }
 

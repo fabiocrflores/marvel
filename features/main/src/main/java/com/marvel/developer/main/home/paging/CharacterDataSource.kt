@@ -7,13 +7,13 @@ import com.marvel.developer.domain.models.character.CharacterResult
 import com.marvel.developer.domain.repositories.CharacterRepository
 import io.reactivex.rxjava3.annotations.NonNull
 import io.reactivex.rxjava3.core.Single
-import retrofit2.HttpException
-import java.io.IOException
+import io.reactivex.rxjava3.schedulers.Schedulers
 import javax.inject.Inject
 
 class CharacterDataSource @Inject constructor(
     private val repository: CharacterRepository,
-    private val nameByFilter: String?
+    private val nameByFilter: String?,
+    private val favoriteCharacters: List<Character>,
 ) : RxPagingSource<Int, Character>() {
 
     companion object {
@@ -40,9 +40,16 @@ class CharacterDataSource @Inject constructor(
         val total = response.data.total
 
         return LoadResult.Page(
-            data = response.data.characters,
+            data = response.data.characters.map { setFavorite(it) },
             prevKey = if (offset == OFFSET_INITIAL) null else offset - PAGE_SIZE,
             nextKey = if (offset >= total) null else offset + PAGE_SIZE
         )
+    }
+
+    private fun setFavorite(character: Character): Character {
+        val isFavorite = favoriteCharacters.filter { it.id == character.id }.any()
+        character.isFavorite = isFavorite
+
+        return character
     }
 }

@@ -8,9 +8,9 @@ import retrofit2.converter.scalars.ScalarsConverterFactory
 
 object BuildRetrofit {
 
-    operator fun invoke(httpClient: OkHttpClient): Retrofit =
+    operator fun invoke(baseUrl: String, httpClient: OkHttpClient): Retrofit =
         with(Retrofit.Builder()) {
-            baseUrl("https://gateway.marvel.com/")
+            baseUrl(baseUrl)
             client(httpClient)
             addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             addConverterFactory(ScalarsConverterFactory.create())

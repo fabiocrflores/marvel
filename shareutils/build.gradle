@@ -60,7 +60,6 @@ dependencies {
     implementation dependencies.roomRuntime
     implementation dependencies.roomKtx
     implementation dependencies.roomRxJava3
-//    implementation dependencies.roomInspector
     kapt dependencies.roomCompiler
 
     // Rx

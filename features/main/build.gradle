@@ -96,8 +96,14 @@ dependencies {
 
     // Test
     testImplementation testDependencies.junit
-    androidTestImplementation testDependencies.extJunit
-    androidTestImplementation testDependencies.espresso
+    testImplementation testDependencies.extJunit
+    testImplementation testDependencies.assertj
+    testImplementation testDependencies.mockitoCore
+    testImplementation testDependencies.mockitoKotlin
+    testImplementation testDependencies.roboletric
+    testImplementation testDependencies.testCoreKtx
+    testImplementation dependencies.coreTesting
+    testImplementation dependencies.coroutinesTest
 }
 
 repositories {

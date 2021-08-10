@@ -60,6 +60,24 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
 
+    testOptions {
+        unitTests {
+            returnDefaultValues = true
+            includeAndroidResources = true
+        }
+    }
+
+    sourceSets {
+        String sharedTestDir = 'src/sharedTest/java'
+
+        androidTest {
+            java.srcDirs += sharedTestDir
+        }
+        test {
+            java.srcDirs += sharedTestDir
+        }
+    }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
@@ -152,8 +170,16 @@ dependencies {
 
     // Test
     testImplementation testDependencies.junit
-    androidTestImplementation testDependencies.extJunit
+    testImplementation testDependencies.extJunit
+    testImplementation testDependencies.assertj
+    testImplementation testDependencies.mockitoCore
+    testImplementation testDependencies.mockitoKotlin
+    testImplementation testDependencies.mockWebServer
+    testImplementation testDependencies.roboletric
+
     androidTestImplementation testDependencies.espresso
+    androidTestImplementation testDependencies.testRunner
+    androidTestImplementation testDependencies.testCoreKtx
     androidTestImplementation dependencies.hiltAndroidTesting
 }
 

@@ -14,16 +14,6 @@ class CharacterRepository(
 
     fun fetchCharacters(nameByFilter: String?, offset: Int): Single<CharacterResult> =
         service.fetchCharacters(nameByFilter = nameByFilter, offset = offset)
-            .flatMap { characterResult ->
-                Flowable.fromIterable(characterResult.data.characters)
-                    .flatMap { character ->
-                        cacheService.fetchCachedById(character.id)
-                            .map {
-                                character.isFavorite = true
-                                characterResult
-                            }
-                    }.first(characterResult)
-            }
 
     fun saveFavoriteCharacterCache(model: Character) {
         cacheService.saveCache(model)

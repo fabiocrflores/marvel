@@ -25,12 +25,6 @@ class FavoriteCharacterCacheInfrastructure @Inject constructor(
             .map { cached -> cached.map { mapper.fromEntity(it) } }
             .toFlowable()
 
-    override fun fetchCachedById(id: Int): Flowable<Character> =
-        dao.loadById(id)
-            .subscribeOn(targetScheduler)
-            .map { mapper.fromEntity(it) }
-            .toFlowable()
-
     override fun deleteCached(model: Character) {
         val entity = mapper.fromModel(model)
         dao.delete(entity)

@@ -31,6 +31,12 @@ dependencies {
 
     // Test
     testImplementation testDependencies.junit
+    testImplementation testDependencies.extJunit
+    testImplementation testDependencies.assertj
+    testImplementation testDependencies.mockitoCore
+    testImplementation testDependencies.mockitoKotlin
+    testImplementation testDependencies.roboletric
+    testImplementation testDependencies.testCoreKtx
 }
 
 java {
